@@ -1,0 +1,136 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "Position PT-sUSDE-26NOV2026 -> USDC",
+      "kind": "position",
+      "id": "position"
+    },
+    {
+      "label": "Ethereum",
+      "kind": "chain",
+      "id": "ethereum"
+    },
+    {
+      "label": "Morpho market PT-sUSDE-26NOV2026/USDC",
+      "kind": "lending_market",
+      "protocol": "morpho",
+      "lltv": 0.915,
+      "id": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05"
+    },
+    {
+      "label": "Morpho Blue core",
+      "kind": "lending_protocol",
+      "protocol": "morpho",
+      "id": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb"
+    },
+    {
+      "label": "Interest rate model",
+      "kind": "irm",
+      "protocol": "morpho",
+      "id": "0x870ac11d48b15db9a138cf899d20f13f79ba00bc"
+    },
+    {
+      "label": "USDC",
+      "kind": "asset",
+      "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    },
+    {
+      "label": "PT-sUSDE-26NOV2026",
+      "kind": "pt",
+      "protocol": "pendle",
+      "expiry": "2026-11-26",
+      "id": "0xb195b618ea52b77cb2a58846f452f59f8dfa9390"
+    },
+    {
+      "label": "Oracle: Price feed 0xF8b29e",
+      "kind": "oracle",
+      "protocol": "morpho",
+      "feed_type": "unknown",
+      "reacts_to_market": null,
+      "id": "0xf8b29e7e9c00ce531434775f7923cc9fbca01b08"
+    },
+    {
+      "label": "SY-sUSDE",
+      "kind": "sy",
+      "protocol": "pendle",
+      "id": "0xbf98480425a29197e5d99d003017f63a1e595d02"
+    },
+    {
+      "label": "sUSDe",
+      "kind": "yield_source",
+      "id": "0x9d39a5de30e57443bff2a8307a4256c8797a3497"
+    },
+    {
+      "label": "USDe",
+      "kind": "asset",
+      "id": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+    },
+    {
+      "label": "Pendle AMM PT-sUSDE-26NOV2026",
+      "kind": "amm",
+      "protocol": "pendle",
+      "confirmed_onchain": true,
+      "id": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e"
+    }
+  ],
+  "links": [
+    {
+      "rel": "settles_on",
+      "source": "position",
+      "target": "ethereum"
+    },
+    {
+      "rel": "held_in",
+      "source": "position",
+      "target": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05"
+    },
+    {
+      "rel": "exit_via",
+      "source": "position",
+      "target": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e"
+    },
+    {
+      "rel": "runs_on",
+      "source": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+      "target": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb"
+    },
+    {
+      "rel": "rate_from",
+      "source": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+      "target": "0x870ac11d48b15db9a138cf899d20f13f79ba00bc"
+    },
+    {
+      "rel": "debt_in",
+      "source": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+      "target": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    },
+    {
+      "rel": "collateral",
+      "source": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+      "target": "0xb195b618ea52b77cb2a58846f452f59f8dfa9390"
+    },
+    {
+      "rel": "priced_by",
+      "source": "morpho:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+      "target": "0xf8b29e7e9c00ce531434775f7923cc9fbca01b08"
+    },
+    {
+      "rel": "redeems_into",
+      "source": "0xb195b618ea52b77cb2a58846f452f59f8dfa9390",
+      "target": "0xbf98480425a29197e5d99d003017f63a1e595d02"
+    },
+    {
+      "rel": "underlying",
+      "source": "0xbf98480425a29197e5d99d003017f63a1e595d02",
+      "target": "0x9d39a5de30e57443bff2a8307a4256c8797a3497"
+    },
+    {
+      "rel": "underlying",
+      "source": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+      "target": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+    }
+  ]
+}
